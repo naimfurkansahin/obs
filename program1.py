@@ -13,22 +13,33 @@ if __name__ == "__main__":
     
     
     baslik = "Öğrenci Bilgi Sistemi (v1)"
-    
-    print(len(baslik))
-    print(baslik)
 
     print("-"*100)
     print(f"| {baslik:^94} |x|")
     print("-"*100)
 
-    ogrenci_adi = input("Öğrenci adını giriniz: ")
-    ogrenci_soyadi = input("Öğrenci soyadını giriniz: ")
-    ogrenci_no = input("Öğrenci numarasını giriniz: ")
+    ogrenci_adlari = []
+    ogrenci_soyadlari = []
+    ogrenci_nolari = [] 
+
+    ogrenci_adlari.append(input("1.Öğrenci adını giriniz: "))        # 0.indeks
+    ogrenci_soyadlari.append(input("1.Öğrenci soyadını giriniz: "))  # 0.indeks
+    ogrenci_nolari.append(input("1.Öğrenci numarasını giriniz: "))   # 0.indeks
+
+    ogrenci_adlari.append(input("2.Öğrenci adını giriniz: "))        # 1.indeks
+    ogrenci_soyadlari.append(input("2.Öğrenci soyadını giriniz: "))  # 1.indeks
+    ogrenci_nolari.append(input("2.Öğrenci numarasını giriniz: "))   # 1.indeks
+
+    ogrenci_adlari.append(input("3.Öğrenci adını giriniz: "))        # 2.indeks
+    ogrenci_soyadlari.append(input("3.Öğrenci soyadını giriniz: "))  # 2.indeks
+    ogrenci_nolari.append(input("3.Öğrenci numarasını giriniz: "))   # 2.indeks
 
     print("-"*100)
     print(f"| {" "*8}| {"İsim":<31} | {"Soyisim":<30} | {"Numara":<20} |")
     print("-"*100)
-    print(f"| {1:^7} | {ogrenci_adi:<31} | {ogrenci_soyadi:<30} | {ogrenci_no:<20} |")
+    print(f"| {1:^7} | {ogrenci_adlari[0]:<31} | {ogrenci_soyadlari[0]:<30} | {ogrenci_nolari[0]:<20} |")
+    print(f"| {2:^7} | {ogrenci_adlari[1]:<31} | {ogrenci_soyadlari[1]:<30} | {ogrenci_nolari[1]:<20} |")
+    print(f"| {3:^7} | {ogrenci_adlari[2]:<31} | {ogrenci_soyadlari[2]:<30} | {ogrenci_nolari[2]:<20} |")
 
 
 

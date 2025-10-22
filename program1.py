@@ -10,15 +10,15 @@ bilgi sistemi senaryosu ile öğreten bir repo
 '''
 
 if __name__ == "__main__":
-
-
+    
+    
     baslik = "Öğrenci Bilgi Sistemi (v1)"
-
+    
     print(len(baslik))
     print(baslik)
 
     print("-"*100)
-    print("|",baslik," "*(94-(len(baslik)+1)),"|x|")
+    print(f"| {baslik:^94} |x|")
     print("-"*100)
 
     ogrenci_adi = input("Öğrenci adını giriniz: ")
@@ -26,8 +26,9 @@ if __name__ == "__main__":
     ogrenci_no = input("Öğrenci numarasını giriniz: ")
 
     print("-"*100)
-    print("|","İsim"," "*(94-(len(baslik)+1)),"|x|")
+    print(f"| {" "*8}| {"İsim":<31} | {"Soyisim":<30} | {"Numara":<20} |")
     print("-"*100)
+    print(f"| {1:^7} | {ogrenci_adi:<31} | {ogrenci_soyadi:<30} | {ogrenci_no:<20} |")
 
 
 

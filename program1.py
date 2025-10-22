@@ -35,11 +35,11 @@ if __name__ == "__main__":
     ogrenci_nolari.append(input("3.Öğrenci numarasını giriniz: "))   # 2.indeks
 
     print("-"*100)
-    print(f"| {" "*8}| {"İsim":<31} | {"Soyisim":<30} | {"Numara":<20} |")
+    print(f"| {" "*8}| {"İsim":<35} | {"Soyisim":<25} | {"Numara":<20} |")
     print("-"*100)
-    print(f"| {1:^7} | {ogrenci_adlari[0]:<31} | {ogrenci_soyadlari[0]:<30} | {ogrenci_nolari[0]:<20} |")
-    print(f"| {2:^7} | {ogrenci_adlari[1]:<31} | {ogrenci_soyadlari[1]:<30} | {ogrenci_nolari[1]:<20} |")
-    print(f"| {3:^7} | {ogrenci_adlari[2]:<31} | {ogrenci_soyadlari[2]:<30} | {ogrenci_nolari[2]:<20} |")
+    print(f"| {1:^7} | {ogrenci_adlari[0]:<35} | {ogrenci_soyadlari[0]:<25} | {ogrenci_nolari[0]:<20} |")
+    print(f"| {2:^7} | {ogrenci_adlari[1]:<35} | {ogrenci_soyadlari[1]:<25} | {ogrenci_nolari[1]:<20} |")
+    print(f"| {3:^7} | {ogrenci_adlari[2]:<35} | {ogrenci_soyadlari[2]:<25} | {ogrenci_nolari[2]:<20} |")
 
 
 

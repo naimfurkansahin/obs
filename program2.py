@@ -12,8 +12,8 @@ if __name__ =='__main__':
           | listele | Ogrencileri listeler  |
           -----------------------------------
           ''')
-    ogrenci_adlari = ['Betul','Furkan','Simge']
-    ogrenci_soyadlari = ['Becerikli','SAHİN','Dogan']
+    ogrenci_adlari = ['Furkan','İlknur','Sima']
+    ogrenci_soyadlari = ['Şahin','Üzüm','Bostan']
     ogrenci_numaralari = ['1234','1235','1236']
     
 

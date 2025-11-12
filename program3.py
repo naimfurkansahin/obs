@@ -7,16 +7,10 @@
     ogreten bir repo (anaprogram dosyasi)
 '''
 
-if __name__ == "__main__":
-
-    #dictionary ---> demet
-    ogrenciler = {  "12345":{'isim':'Furkan','soyisim':'Sahin'},
-                    "12346":{'isim':'Ilknur','soyisim':'Uzum'},
-                    "12347":{'isim':'Arif','soyisim':'Uysal'},}
-
-    print('''
+def print_intro(version):
+    print(f'''
 ----------------------------------------
-Ogrenci Bilgi Sistemi v.1
+Ogrenci Bilgi Sistemi v.{version}
 ----------------------------------------
 | Komut Listesi                        |
 ----------------------------------------
@@ -28,59 +22,77 @@ Ogrenci Bilgi Sistemi v.1
 ----------------------------------------        
 ''')
 
+
+def ogrenci_ekle(odict):
+    print('----------------------------------------')
+    ogrenci_sayisi = int(input('Ogrenci sayisini giriniz:'))
+
+    for sira in range(ogrenci_sayisi):
+        key = input(f'{sira+1}. Ogrenci numarasini giriniz:')
+        
+        if key in odict: 
+            print(f'{key} numarali ogrenci zaten mevcut!')
+        else:
+            isim = input(f'{sira+1}. Ogrenci adini giriniz:')
+            soyisim = input(f'{sira+1}. Ogrenci soyadini giriniz:')
+            odict[key] = {'isim':isim,'soyisim':soyisim}
+    print('----------------------------------------')
+
+def ogrenci_sil(odict):
+    print('----------------------------------------')
+    ogrenci_numarasi = input('Ogrenci numarasini giriniz:')
+
+    try:
+        del odict[ogrenci_numarasi]
+        print(f'{ogrenci_numarasi} numarali ogrenci silindi!')
+    except:
+        print(f'{ogrenci_numarasi} numarali bir ogrenci yok!')
+    print('----------------------------------------')
+
+def ogrenci_guncelle(odict):
+    print('----------------------------------------')
+    key = input(f'Ogrenci numarasini giriniz:')
+
+    if key in odict:
+        isim = input(f'Ogrenci adini giriniz:')
+        soyisim = input(f'Ogrenci soyadini giriniz:')
+        
+        odict[key] = {'isim':isim,'soyisim':soyisim}
+        print(f'{key} numarali bir ogrenci guncellendi!')
+    else:
+        print(f'{key} numarali bir ogrenci yok!')
+    print('----------------------------------------')
+
+def ogrenci_listele(odict):
+    print('----------------------------------------')
+    print('-' * 40)
+    print(f'|{" "*2}| {"Isim":<13} | {"Soyisim":<8} | {"Numara":<5} |')
+    print('-' * 40)
+    for sira, key in enumerate(odict):
+        print(f'|{(sira+1):>2}| {odict[key]['isim']:<13} | {odict[key]['soyisim']:<8} | {key:<5} |')    
+    print('----------------------------------------')
+
+if __name__ == '__main__':
+
+    ogrenciler = {'12345':{'isim':'Ramazan Ozgur','soyisim':'Dogan'},
+                  '12346':{'isim':'Hulya','soyisim':'Yaldiz'},
+                  '12347':{'isim':'Yigit Kagan','soyisim':'Caliskan'}}
+  
+    print_intro('2.3')
+
     komut = input('Komut giriniz:').strip().lower()
+
     while komut != 'kapat':
-
-        if komut == 'ekle':
-            print('----------------------------------------')
-            ogrenci_sayisi = int(input('Ogrenci sayisini giriniz:'))
-
-            for sira in range(ogrenci_sayisi):
-                key = input(f'{sira+1}. Ogrenci numarasini giriniz:')
-
-                if key in ogrenciler:
-                    print(f"{ogrenci_numarasi} numaralı ogrenci zaten var")
-                else:
-                    isim = input(f'{sira+1}. Ogrenci ismini giriniz:')
-                    soyisim = input(f'{sira+1}. Ogrenci soyismini giriniz:')
-                    ogrenciler[key] = {'isim': isim, "soyisim" : soyisim}
-            print('----------------------------------------')
-
+        if komut == 'ekle':            
+            ogrenci_ekle(ogrenciler)
+            ogrenci_listele(ogrenciler)
         elif komut == 'sil':
-            print('----------------------------------------')
-            ogrenci_numarasi = input('Ogrenci numarasini giriniz:')
-
-            try:
-                del ogrenciler[ogrenci_numarasi]
-                print(f'{ogrenci_numarasi} numarali ogrenci silindi!')
-            except:
-                print(f'{ogrenci_numarasi} numarali bir ogrenci yok!')
-                print('----------------------------------------')
-
+            ogrenci_sil(ogrenciler)
+            ogrenci_listele(ogrenciler)
         elif komut == 'guncelle':
-            print('----------------------------------------')
-            key = input(f'Ogrenci numarasini giriniz:')
-
-            if key in ogrenciler:
-                isim = input(f'Ogrenci ismini giriniz:')
-                soyisim = input(f'Ogrenci soyismini giriniz:')
-
-                ogrenciler[key] = {'isim': isim, "soyisim" : soyisim}
-
-                print(f"{key} numaralı öğrenci güncellendi.")
-
-            else:
-                print(f"{key} numaralı bir öğrenci bulunamadı.")
-
+            ogrenci_guncelle(ogrenciler)
         elif komut == 'listele':
-            print('----------------------------------------')
-            print('-' * 40)
-            print(f'|{" "*2}| {"Isim":<13} | {"Soyisim":<8} | {"Numara":<5} |')
-            print('-' * 40)
-            for sira, key in enumerate(ogrenciler):
-                print(f"|{(sira+1):>2}| {ogrenciler[key]['isim']:<13} | {ogrenciler[key]["soyisim"]:<8} | {key:<6} |")
-            print('----------------------------------------')
-
+            ogrenci_listele(ogrenciler)
         else:
             print('----------------------------------------')
             print(f'"{komut}" seklinde tanimli bir komut bulanamadi!')
